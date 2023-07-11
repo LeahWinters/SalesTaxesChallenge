@@ -1,0 +1,30 @@
+.form {
+  border: solid 1px black;
+  padding: 5px;
+  width: 50%;
+}
+
+.formHeader {
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.inputHolder {
+
+}
+
+.nameInput {
+
+}
+
+.categorySelect {
+
+}
+
+.importedSelect {
+  
+}
+
+.priceInput {
+
+}
