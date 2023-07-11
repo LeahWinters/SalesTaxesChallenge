@@ -1,7 +1,7 @@
 .form {
   border: solid 1px black;
   padding: 5px;
-  width: 50%;
+  width: 99%;
 }
 
 .formHeader {
@@ -10,21 +10,64 @@
 }
 
 .inputHolder {
+  display: flex;
+  width: 100%;
+}
 
+.formOptions {
+  display: flex;
+  justify-content: space-between;
+  width: 70%;
 }
 
 .nameInput {
-
+  border: 1px solid #140D1D;
+  border-radius: 5px;
+  height: 2em;
+  padding-left: 4px;
+  width: 30%;
 }
 
 .categorySelect {
-
+  border: 1px solid #140D1D;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 2.4em;
+  width: 22%;
 }
 
 .importedSelect {
-  
+  border: 1px solid #140D1D;
+  border-radius: 5px;
+  cursor: pointer;
+  height: 2.4em;
+  width: 13%;
 }
 
 .priceInput {
+  border: 1px solid #140D1D;
+  border-radius: 5px;
+  padding-left: 4px;
+  height: 2em;
+}
 
+.addGoodsButton {
+  border: 1px solid #364156;
+  border-radius: 5px;
+  height: 2.4em;
+  font-size: 0.8em;
+  font-weight: 600;
+  margin-left: 22%;
+  width: 92px;
+}
+
+.buttonDisabled {
+  background-color: #8292B0;
+  color: #eef0eb;
+}
+
+.buttonEnabled {
+  background-color: #009ea3;
+  color: #eef0eb;
+  cursor: pointer;
 }
