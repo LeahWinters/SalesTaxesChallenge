@@ -1,0 +1,16 @@
+export const shoppingListItems = {
+  BOOK: 'Book',
+  MUSIC_CD: 'Music CD',
+  MAGAZINE: 'Magazine',
+  CHOCOLATE_BAR: 'Chocolate Bar',
+  BOX_OF_CHOCOLATES: 'Box of Chocolates',
+  IMPORTED_BOX_OF_CHOCOLATES: 'Imported box of Chocolates',
+  DOZEN_ROSES: 'Dozen Roses',
+  PRODUCE: 'Box of fresh produce',
+  WHEEL_OF_CHEESE: 'Wheel of cheese',
+  IMPORTED_WHEEL_OF_CHEESE: 'Imported wheel of cheese',
+  BOTTLE_OF_PERFUME: 'Bottle of perfume',
+  IMPORTED_BOTTLE_OF_PERFUME: 'Imported bottle of perfume',
+  HEADACHE_PILLS: 'Packet of headache pills',
+  BANDAIDS: 'Bandaids',
+};
