@@ -1,0 +1,65 @@
+.tableholder {
+  display: flex;
+}
+
+.noGoodsMessage {
+  
+}
+
+table,
+td {
+  border: solid 1px black;
+}
+
+table {
+  width: 40%;
+}
+
+thead {
+  background-color: aliceblue;
+}
+
+.costCell {
+  width: 20%;
+}
+
+.cell {
+  text-align: center;
+}
+
+.deleteBtnHolder {
+  width: 33%;
+  text-align: center;
+}
+
+.deleteBtn {
+  background-color: #009ea3;
+  border: 1px solid #364156;
+  border-radius: 5px;
+  color: #eef0eb;
+  cursor: pointer;
+  height: 2.05em;
+  font-size: 0.8em;
+  font-weight: 600;
+}
+
+.checkOutBtn {
+  border: 1px solid #364156;
+  border-radius: 5px;
+  color: #eef0eb;
+  cursor: pointer;
+  height: 2.05em;
+  font-size: 0.8em;
+  font-weight: 600;
+  margin-left: 100px;
+  margin-top: 11px;
+}
+
+.buttonDisabled {
+  background-color: #8292B0;
+}
+
+.buttonEnabled {
+  background-color: #009ea3;
+  cursor: pointer;
+}
