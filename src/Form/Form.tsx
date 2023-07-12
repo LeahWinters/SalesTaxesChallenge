@@ -16,11 +16,21 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
   useEffect(() => {
     if ((goodsName && goodsPrice && category && isImported) !== '' ) {
       setIsAddGoodButtonDisabled(false);
+    } else {
+      setIsAddGoodButtonDisabled(true);
     }
   }, [goodsName, goodsPrice, category, isImported]);
 
+  const clearFormInputs = () => {
+    setGoodsName('');
+    setCategory('');
+    setIsImported(false);
+    setGoodsPrice('');
+  };
+
   const submitNewGood = () => {
     addGoodsToGoodsData({name: goodsName, category, isImported, price: goodsPrice});
+    clearFormInputs();
   };
 
   const handleIsImportedSelection = (selectedValue: string) => {
@@ -37,6 +47,7 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
             placeholder='Goods Name' 
             className='nameInput'
             onChange={e => setGoodsName(e.target.value)}
+            value={goodsName}
           />
           <select 
             id='category-select' 
@@ -64,6 +75,7 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
             type='text'
             placeholder='Price' 
             className='priceInput'
+            value={goodsPrice}
             onChange={e => setGoodsPrice(e.target.value)}
           />
         </div>
