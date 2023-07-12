@@ -1,5 +1,5 @@
 .tableholder {
-
+  display: flex;
 }
 
 .noGoodsMessage {
@@ -41,4 +41,25 @@ thead {
   height: 2.05em;
   font-size: 0.8em;
   font-weight: 600;
+}
+
+.checkOutBtn {
+  border: 1px solid #364156;
+  border-radius: 5px;
+  color: #eef0eb;
+  cursor: pointer;
+  height: 2.05em;
+  font-size: 0.8em;
+  font-weight: 600;
+  margin-left: 100px;
+  margin-top: 11px;
+}
+
+.buttonDisabled {
+  background-color: #8292B0;
+}
+
+.buttonEnabled {
+  background-color: #009ea3;
+  cursor: pointer;
 }

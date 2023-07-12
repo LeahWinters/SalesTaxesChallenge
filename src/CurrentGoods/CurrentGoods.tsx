@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import AddedGoodsDataInterface from '../interfacesData';
 import './CurrentGoods.css';
 
@@ -8,6 +8,15 @@ interface ICurrentGoods {
 }
 
 const CurrentGoods: FC<ICurrentGoods> = ({ currentGoods, removeGoodFromCurrentGoods }) => {
+  const [isCheckOutDisabled, setIsCheckOutDisabled] = useState(true);
+
+  useEffect(() => {
+    if (currentGoods.length > 0) {
+      setIsCheckOutDisabled(false);
+    } else {
+      setIsCheckOutDisabled(true);
+    }
+  }, [currentGoods]);
 
   const getCurrentGoodsToDisplay = () => {
     if (currentGoods.length > 0) {
@@ -58,6 +67,7 @@ const CurrentGoods: FC<ICurrentGoods> = ({ currentGoods, removeGoodFromCurrentGo
       <h3>Current Goods</h3>
       <div className='tableholder'>
         {getTableToDisplay()}
+        <button className={isCheckOutDisabled ? 'checkOutBtn buttonDisabled' : 'checkOutBtn buttonEnabled'}>Check Out</button>
       </div>
     </div>
   );
