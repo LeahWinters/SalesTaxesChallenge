@@ -3,10 +3,11 @@ import AddedGoodsDataInterface from '../interfacesData';
 import './CurrentGoods.css';
 
 interface ICurrentGoods {
-  currentGoods: Array<AddedGoodsDataInterface>
+  currentGoods: Array<AddedGoodsDataInterface>;
+  removeGoodFromCurrentGoods: (goodsData: AddedGoodsDataInterface) => void;
 }
 
-const CurrentGoods: FC<ICurrentGoods> = ({ currentGoods }) => {
+const CurrentGoods: FC<ICurrentGoods> = ({ currentGoods, removeGoodFromCurrentGoods }) => {
 
   const getCurrentGoodsToDisplay = () => {
     if (currentGoods.length > 0) {
@@ -16,7 +17,12 @@ const CurrentGoods: FC<ICurrentGoods> = ({ currentGoods }) => {
             <td className='cell'>{good.name}</td>
             <td className='cell'>{good.price}</td>
             <td className='deleteBtnHolder'>
-              <button className='deleteBtn'>Delete</button>
+              <button 
+                className='deleteBtn' 
+                onClick={() => removeGoodFromCurrentGoods(good)}
+              >
+                Delete
+              </button>
             </td>
           </tr>
         );

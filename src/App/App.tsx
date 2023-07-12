@@ -11,6 +11,13 @@ export const App: FC = () => {
     setCurrentGoods([...currentGoods, {name, category, isImported, price}]);
   };
 
+  const removeGoodFromCurrentGoods = (goodToBeRemoved: object) => {
+    const updatedGoods = currentGoods.filter(good => {
+      return good != goodToBeRemoved;
+    });
+    setCurrentGoods(updatedGoods);
+  };
+
   return (
     <div className='app'>
       <h1 className='salesTaxHeader'>Sales Taxes Challenge</h1>
@@ -19,9 +26,9 @@ export const App: FC = () => {
       />
       <CurrentGoods 
         currentGoods={currentGoods}
+        removeGoodFromCurrentGoods={removeGoodFromCurrentGoods}
       />
     </div>
-    // <div className='salesTaxHeader'>Sales Taxes Challenge</div>
   );
 };
 
