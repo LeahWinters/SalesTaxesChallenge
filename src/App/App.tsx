@@ -1,4 +1,4 @@
-import React, { useState, FC } from 'react';
+import { useState, FC } from 'react';
 import Form from '../Form/Form';
 import AddedGoodsDataInterface from '../interfacesData';
 import './App.css';
@@ -22,5 +22,3 @@ export const App: FC = () => {
 };
 
 export default App;
-
-// name: string, category: string, isImported: boolean, price: number

@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import { useState, FC, useEffect } from 'react';
 import AddedGoodsDataInterface from '../interfacesData';
 import './Form.css';
 
 interface FormInterface {
-  addGoodsToGoodsData: () => void;
+  addGoodsToGoodsData: (goodsData: AddedGoodsDataInterface) => void;
 };
 
-const Form = ({ addGoodsToGoodsData }: FormInterface) => {
+const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
   const [goodsName, setGoodsName] = useState('');
   const [category, setCategory] = useState('');
-  const [isImported, setIsImported] = useState('');
+  const [isImported, setIsImported] = useState(false);
   const [goodsPrice, setGoodsPrice] = useState('');
   const [isAddGoodButtonDisabled, setIsAddGoodButtonDisabled] = useState(true);
   
@@ -19,6 +19,13 @@ const Form = ({ addGoodsToGoodsData }: FormInterface) => {
     }
   }, [goodsName, goodsPrice, category, isImported]);
 
+  const submitNewGood = () => {
+    addGoodsToGoodsData({name: goodsName, category, isImported, price: goodsPrice});
+  };
+
+  const handleIsImportedSelection = (selectedValue: string) => {
+    selectedValue === 'no' ? setIsImported(false) : setIsImported(true);
+  };
 
   return (
     <div className='form'>
@@ -46,15 +53,15 @@ const Form = ({ addGoodsToGoodsData }: FormInterface) => {
           <select 
             id='imported-select' 
             className='importedSelect'
-            value={isImported}
-            onChange={e => setIsImported(e.target.value)}
+            value=''
+            onChange={e => handleIsImportedSelection(e.target.value)}
           >
             <option value='' disabled>Imported?</option>
             <option value='no'>No</option>
             <option value='yes'>Yes</option>
           </select>
           <input 
-            type='number'
+            type='text'
             placeholder='Price' 
             className='priceInput'
             onChange={e => setGoodsPrice(e.target.value)}
@@ -63,6 +70,7 @@ const Form = ({ addGoodsToGoodsData }: FormInterface) => {
         <button 
           disabled={isAddGoodButtonDisabled} 
           className={isAddGoodButtonDisabled ? 'buttonDisabled addGoodsButton' : 'buttonEnabled addGoodsButton'}
+          onClick={submitNewGood}
         >
           Add Good
         </button>
