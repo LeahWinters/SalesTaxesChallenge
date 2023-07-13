@@ -1,5 +1,5 @@
 import { useState, FC, useEffect } from 'react';
-import AddedGoodsDataInterface from '../interfacesData';
+import { AddedGoodsDataInterface } from '../interfacesData';
 import './Form.css';
 
 interface FormInterface {
@@ -10,11 +10,12 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
   const [goodsName, setGoodsName] = useState('');
   const [category, setCategory] = useState('');
   const [isImported, setIsImported] = useState(false);
+  const [isImportedString, setIsImportedString] = useState('');
   const [goodsPrice, setGoodsPrice] = useState('');
   const [isAddGoodButtonDisabled, setIsAddGoodButtonDisabled] = useState(true);
-  
+
   useEffect(() => {
-    if ((goodsName && goodsPrice && category && isImported) !== '' ) {
+    if ((goodsName && goodsPrice && category && isImportedString) !== '' ) {
       setIsAddGoodButtonDisabled(false);
     } else {
       setIsAddGoodButtonDisabled(true);
@@ -25,16 +26,32 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
     setGoodsName('');
     setCategory('');
     setIsImported(false);
+    setIsImportedString('');
     setGoodsPrice('');
   };
 
   const submitNewGood = () => {
-    addGoodsToGoodsData({name: goodsName, category, isImported, price: goodsPrice});
+    addGoodsToGoodsData({name: goodsName, category, isImported, price: Number(goodsPrice)});
     clearFormInputs();
   };
 
   const handleIsImportedSelection = (selectedValue: string) => {
-    selectedValue === 'no' ? setIsImported(false) : setIsImported(true);
+    if (selectedValue === 'no') {
+      setIsImported(false);
+      setIsImportedString('no');
+    } else if ( selectedValue === 'yes') {
+      setIsImported(true);
+      setIsImportedString('yes');
+    };
+  };
+
+  const verifyPriceIsCorrectFormat = (priceString: string) => {
+    // regex to restrict user to only be able to enter numbers and one decimal point
+    const regex = /^(\d)*(\.)?([0-9]{1,2})?$/;
+    // verifies
+    if (regex.test(priceString) || priceString === '') {
+      setGoodsPrice(priceString);
+    }
   };
 
   return (
@@ -53,7 +70,7 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
             id='category-select' 
             className='categorySelect' 
             value={category} 
-            onChange={(e) => setCategory(e.target.value)}
+            onChange={e => setCategory(e.target.value)}
           >
             <option value='' disabled>Select Category</option>
             <option value='food'>Food</option>
@@ -64,7 +81,7 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
           <select 
             id='imported-select' 
             className='importedSelect'
-            value=''
+            value={isImportedString}
             onChange={e => handleIsImportedSelection(e.target.value)}
           >
             <option value='' disabled>Imported?</option>
@@ -76,13 +93,13 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
             placeholder='Price' 
             className='priceInput'
             value={goodsPrice}
-            onChange={e => setGoodsPrice(e.target.value)}
+            onChange={e => verifyPriceIsCorrectFormat(e.target.value)}
           />
         </div>
         <button 
           disabled={isAddGoodButtonDisabled} 
           className={isAddGoodButtonDisabled ? 'buttonDisabled addGoodsButton' : 'buttonEnabled addGoodsButton'}
-          onClick={submitNewGood}
+          onClick={() => submitNewGood()}
         >
           Add Good
         </button>
