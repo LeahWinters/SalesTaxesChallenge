@@ -47,7 +47,7 @@ const CurrentGoods: FC<ICurrentGoods> = ({ currentGoods, removeGoodFromCurrentGo
           <td>You have not added any goods yet, please add some to get started!</td>
         </tr>
       );
-    };
+    }
   };
 
   const getTableToDisplay = () => (

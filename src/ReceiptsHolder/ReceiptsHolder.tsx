@@ -5,7 +5,7 @@ import Receipt from '../Receipt/Receipt';
 
 interface IReceiptsHolder {
   receiptsData: Array<IReceipts>;
-};
+}
 
 const ReceiptsHolder: FC<IReceiptsHolder> = ({ receiptsData }) => {
   const getReceiptsToDisplay = () => {
@@ -21,7 +21,7 @@ const ReceiptsHolder: FC<IReceiptsHolder> = ({ receiptsData }) => {
       return (
         <div>You have do not have any receipts currently. Add some items to make some!</div>
       );
-    };
+    }
   };
   
   return (
