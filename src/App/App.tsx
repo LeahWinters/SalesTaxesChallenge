@@ -35,11 +35,13 @@ const App: FC = () => {
       let newGoodsTotal = goodsTotal;
 
       if (good.category === 'other') {
+        // gets proper tax and rounds it up to the nearest 5 cents
         const itemSalesTax = Number((Math.ceil((goodsTotal*0.10)*20)/20).toFixed(2));
         taxTotal += itemSalesTax;
         newGoodsTotal += itemSalesTax;
       }
       if (good.isImported) {
+        // gets proper tax and rounds it up to the nearest 5 cents
         const itemImportedTax = Number((Math.ceil((goodsTotal*0.05)*20)/20).toFixed(2));
         taxTotal += itemImportedTax;
         newGoodsTotal += itemImportedTax;

@@ -15,7 +15,7 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
   const [isAddGoodButtonDisabled, setIsAddGoodButtonDisabled] = useState(true);
 
   useEffect(() => {
-    if ((goodsName && goodsPrice && category && isImportedString) !== '' ) {
+    if ((goodsName && goodsPrice && category && isImportedString)) {
       setIsAddGoodButtonDisabled(false);
     } else {
       setIsAddGoodButtonDisabled(true);
@@ -31,7 +31,7 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
   };
 
   const submitNewGood = () => {
-    addGoodsToGoodsData({name: goodsName, category, isImported, price: Number(goodsPrice)});
+    addGoodsToGoodsData({name: goodsName, category, isImported, price: parseFloat(goodsPrice)});
     clearFormInputs();
   };
 
