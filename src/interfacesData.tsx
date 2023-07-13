@@ -1,6 +1,12 @@
-export default interface AddedGoodsDataInterface {
+export interface AddedGoodsDataInterface {
   name: string,
   category: string,
   isImported: boolean,
-  price: string
+  price: number
+};
+
+export interface IReceipts {
+  receiptItems: AddedGoodsDataInterface[],
+  salesTax: number,
+  transactionTotal: number
 };
