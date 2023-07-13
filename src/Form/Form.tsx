@@ -4,7 +4,7 @@ import './Form.css';
 
 interface FormInterface {
   addGoodsToGoodsData: (goodsData: AddedGoodsDataInterface) => void;
-};
+}
 
 const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
   const [goodsName, setGoodsName] = useState('');
@@ -20,7 +20,7 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
     } else {
       setIsAddGoodButtonDisabled(true);
     }
-  }, [goodsName, goodsPrice, category, isImported]);
+  }, [goodsName, goodsPrice, category, isImported, isImportedString]);
 
   const clearFormInputs = () => {
     setGoodsName('');
@@ -42,7 +42,7 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
     } else if ( selectedValue === 'yes') {
       setIsImported(true);
       setIsImportedString('yes');
-    };
+    }
   };
 
   const verifyPriceIsCorrectFormat = (priceString: string) => {

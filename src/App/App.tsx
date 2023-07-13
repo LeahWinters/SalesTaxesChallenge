@@ -39,12 +39,12 @@ const App: FC = () => {
         const itemSalesTax = Number((Math.ceil((goodsTotal*0.10)*20)/20).toFixed(2));
         taxTotal += itemSalesTax;
         newGoodsTotal += itemSalesTax;
-      };
+      }
       if (good.isImported) {
         const itemImportedTax = Number((Math.ceil((goodsTotal*0.05)*20)/20).toFixed(2));
         taxTotal += itemImportedTax;
         newGoodsTotal += itemImportedTax;
-      };
+      }
 
       salesTotal += newGoodsTotal;
       good.price = newGoodsTotal;
