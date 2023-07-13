@@ -55,8 +55,8 @@ const App: FC = () => {
   };
 
   return (
-    <div className='app'>
-      <h1 className='salesTaxHeader'>Sales Taxes Challenge</h1>
+    <div>
+      <h1>Sales Taxes Challenge</h1>
       <Form
         addGoodsToGoodsData={addGoodsToGoodsData}
       />
