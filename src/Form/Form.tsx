@@ -1,9 +1,9 @@
 import { useState, FC, useEffect } from 'react';
-import { AddedGoodsDataInterface } from '../interfacesData';
+import { IAddedGoodsData } from '../interfacesData';
 import './Form.css';
 
 interface FormInterface {
-  addGoodsToGoodsData: (goodsData: AddedGoodsDataInterface) => void;
+  addGoodsToGoodsData: (goodsData: IAddedGoodsData) => void;
 }
 
 const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
@@ -46,9 +46,8 @@ const Form: FC<FormInterface> = ({ addGoodsToGoodsData }) => {
   };
 
   const verifyPriceIsCorrectFormat = (priceString: string) => {
-    // regex to restrict user to only be able to enter numbers and one decimal point
+    // restricts user to only be able to enter numbers and one decimal point
     const regex = /^(\d)*(\.)?([0-9]{1,2})?$/;
-    // verifies
     if (regex.test(priceString) || priceString === '') {
       setGoodsPrice(priceString);
     }

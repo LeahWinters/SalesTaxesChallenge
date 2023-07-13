@@ -1,15 +1,14 @@
 import { useState, FC } from 'react';
 import Form from '../Form/Form';
-import { AddedGoodsDataInterface, IReceipts } from '../interfacesData';
+import { IAddedGoodsData, IReceipts } from '../interfacesData';
 import CurrentGoods from '../CurrentGoods/CurrentGoods';
 import ReceiptsHolder from '../ReceiptsHolder/ReceiptsHolder';
-import './App.css';
 
 const App: FC = () => {
-  const [currentGoods, setCurrentGoods] = useState(Array<AddedGoodsDataInterface>);
+  const [currentGoods, setCurrentGoods] = useState(Array<IAddedGoodsData>);
   const [receiptsData, setReceiptsData] = useState(Array<IReceipts>);
 
-  const addGoodsToGoodsData = ({name, category, isImported, price}: AddedGoodsDataInterface) => {
+  const addGoodsToGoodsData = ({name, category, isImported, price}: IAddedGoodsData) => {
     setCurrentGoods([...currentGoods, {name, category, isImported, price: Number(price)}]);
   };
 
@@ -24,7 +23,7 @@ const App: FC = () => {
     setCurrentGoods(updatedGoods);
   };
 
-  const createReceiptData = (allGoods: AddedGoodsDataInterface[], taxTotal:number, salesTotal: number) => {
+  const createReceiptData = (allGoods: IAddedGoodsData[], taxTotal:number, salesTotal: number) => {
     setReceiptsData([...receiptsData, {receiptItems: allGoods, salesTax: taxTotal, transactionTotal: salesTotal}]);
   };
 

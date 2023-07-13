@@ -1,9 +1,9 @@
 import { FC } from 'react';
-import { AddedGoodsDataInterface } from '../interfacesData';
+import { IAddedGoodsData } from '../interfacesData';
 import './Receipt.css';
 
 interface IReceipts {
-  soldItems: Array<AddedGoodsDataInterface>;
+  soldItems: Array<IAddedGoodsData>;
   salesTax: number;
   total: number;
 }

@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from 'react';
-import { AddedGoodsDataInterface } from '../interfacesData';
+import { IAddedGoodsData } from '../interfacesData';
 import './CurrentGoods.css';
 
 interface ICurrentGoods {
-  currentGoods: Array<AddedGoodsDataInterface>;
-  removeGoodFromCurrentGoods: (goodsData: AddedGoodsDataInterface) => void;
+  currentGoods: Array<IAddedGoodsData>;
+  removeGoodFromCurrentGoods: (goodsData: IAddedGoodsData) => void;
   calculateAndAddTaxes: () => void;
   clearCurrentGoods: () => void;
 }
