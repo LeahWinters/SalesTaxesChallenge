@@ -1,7 +1,8 @@
 .receiptCard {
+  background-color: aliceblue;
   border: solid 1px black;
   border-radius: 5px;
   margin: 5px;
-  padding-left: 7px;
+  text-align: center;
   width: 11%;
 }
