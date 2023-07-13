@@ -1,4 +1,4 @@
-export interface AddedGoodsDataInterface {
+export interface IAddedGoodsData {
   name: string,
   category: string,
   isImported: boolean,
@@ -6,7 +6,7 @@ export interface AddedGoodsDataInterface {
 }
 
 export interface IReceipts {
-  receiptItems: AddedGoodsDataInterface[],
+  receiptItems: IAddedGoodsData[],
   salesTax: number,
   transactionTotal: number
 }
